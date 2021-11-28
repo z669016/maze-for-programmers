@@ -51,6 +51,7 @@ class MazeTest {
 
     @BeforeEach
     void setup() {
+        // beware, this grid can only be traversed in one direction, as the gates to the previous cell are not opened
         grid = new byte[][] {
                 {Cell.EAST_OPEN_MASK, Cell.EAST_OPEN_MASK, Cell.NORTH_OPEN_MASK, Cell.EAST_OPEN_MASK, Cell.NORTH_OPEN_MASK},
                 {Cell.EAST_OPEN_MASK, Cell.NORTH_OPEN_MASK, Cell.EAST_OPEN_MASK, Cell.NORTH_OPEN_MASK, Cell.NORTH_OPEN_MASK},
@@ -86,6 +87,7 @@ class MazeTest {
 
         maze.goEast();
 
+        assertThrows(IllegalStateException.class, () -> maze.goWest());
         assertThrows(IllegalStateException.class, () -> maze.goSouth());
         assertThrows(IllegalStateException.class, () -> maze.goNorth());
 
