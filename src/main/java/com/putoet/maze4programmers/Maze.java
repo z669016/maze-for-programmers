@@ -124,7 +124,7 @@ public class Maze {
             }
             case WEST -> {
                 if (!canGoWest(x, y))
-                    throw new IllegalStateException("Cannot go wesst from " + position);
+                    throw new IllegalStateException("Cannot go west from " + position);
                 x -= 1;
             }
         }

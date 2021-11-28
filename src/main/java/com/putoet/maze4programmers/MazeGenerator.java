@@ -16,8 +16,8 @@ public interface MazeGenerator {
 
     /**
      * Creates a maze with the specified size and a starting position of (0, 0) (south-west corner)
-     * @param width
-     * @param height
+     * @param width number of columns for the maze
+     * @param height number of rows for the maze
      * @return the newly created maze
      */
     default Maze of(int width, int height) {
@@ -26,8 +26,9 @@ public interface MazeGenerator {
 
     /**
      * Creates a maze with the specified size and the specified starting position.
-     * @param width
-     * @param height
+     * @param width number of columns for the maze
+     * @param height number of rows for the maze
+     * @param startingPosition the starting position in the maze
      * @return the newly created maze
      */
     default Maze of(int width, int height, Pair<Integer, Integer> startingPosition) {
@@ -56,7 +57,7 @@ public interface MazeGenerator {
 
     /**
      * checks if the x-coordinate corresponds to the east (right) column of the maze
-     * @param y y-coordinate
+     * @param x y-coordinate
      * @param grid the byte[][] grid
      * @return true if the x-coordinate is of the east (right) column, false otherwise
      */
