@@ -5,11 +5,14 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.putoet</groupId>
-  <artifactId>maze-for-programmers</artifactId>
+  <artifactId>mazes-for-programmers</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>Maze for Programmers</name>
-  <description>Libraries for creating mazes</description>
+  <name>Mazes for Programmers</name>
+  <description>Libraries for creating mazes, based on theory of Jamis Buck
+    described in the book published by The Pragmatic Bookshelf (June 2015,
+    ISBN 9781680500554)</description>
+  <url>https://pragprog.com/titles/jbmaze/mazes-for-programmers/</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

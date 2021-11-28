@@ -1,6 +1,8 @@
-# Maze for Programmers
+# Mazes for Programmers - Code Your Own Twisty Little Passages
 
 This project provides classes to play with mazes. 
+
+The code is based on the theory of the book [Mazes for Programmers](https://pragprog.com/titles/jbmaze/mazes-for-programmers/)
 
 The ```Maze``` class allows a player to move through a maze and print the maze (showing a trail of visited
 cells). The ```Direction``` class is used for navigation. The ```Cell``` class contains convenience methods
