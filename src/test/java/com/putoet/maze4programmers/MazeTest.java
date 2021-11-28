@@ -8,51 +8,56 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MazeTest {
     private static final String EMPTY_MAZE =
-                    "+-+-+-+-+-+\n" +
-                    "|         |\n" +
-                    "+-+ +-+ + +\n" +
-                    "|   |   | |\n" +
-                    "+ +-+ +-+ +\n" +
-                    "| |   |   |\n" +
-                    "+-+ +-+ + +\n" +
-                    "|   |   | |\n" +
-                    "+-+-+ +-+ +\n" +
-                    "|o    |   |\n" +
-                    "+-+-+-+-+-+\n";
+            """
+                    +-+-+-+-+-+
+                    |         |
+                    +-+ +-+ + +
+                    |   |   | |
+                    + +-+ +-+ +
+                    | |   |   |
+                    +-+ +-+ + +
+                    |   |   | |
+                    +-+-+ +-+ +
+                    |o    |   |
+                    +-+-+-+-+-+
+                    """;
 
     private static final String VISITED_MAZE =
-                    "+-+-+-+-+-+\n" +
-                    "|        o|\n" +
-                    "+-+ +-+ +*+\n" +
-                    "|   |   |*|\n" +
-                    "+ +-+ +-+*+\n" +
-                    "| |   |***|\n" +
-                    "+-+ +-+*+ +\n" +
-                    "|   |***| |\n" +
-                    "+-+-+*+-+ +\n" +
-                    "|*****|   |\n" +
-                    "+-+-+-+-+-+\n";
+            """
+                    +-+-+-+-+-+
+                    |        o|
+                    +-+ +-+ +*+
+                    |   |   |*|
+                    + +-+ +-+*+
+                    | |   |***|
+                    +-+ +-+*+ +
+                    |   |***| |
+                    +-+-+*+-+ +
+                    |*****|   |
+                    +-+-+-+-+-+
+                    """;
 
     private static final String PARTIALLY_VISITED_MAZE =
-                    "+-+-+-+-+-+\n" +
-                    "|         |\n" +
-                    "+-+ +-+ + +\n" +
-                    "|   |   | |\n" +
-                    "+ +-+ +-+ +\n" +
-                    "| |   |   |\n" +
-                    "+-+ +-+ + +\n" +
-                    "|   |**o| |\n" +
-                    "+-+-+*+-+ +\n" +
-                    "|*****|   |\n" +
-                    "+-+-+-+-+-+\n";
+            """
+                    +-+-+-+-+-+
+                    |         |
+                    +-+ +-+ + +
+                    |   |   | |
+                    + +-+ +-+ +
+                    | |   |   |
+                    +-+ +-+ + +
+                    |   |**o| |
+                    +-+-+*+-+ +
+                    |*****|   |
+                    +-+-+-+-+-+
+                    """;
 
-    private byte[][] grid;
     private Maze maze;
 
     @BeforeEach
     void setup() {
         // beware, this grid can only be traversed in one direction, as the gates to the previous cell are not opened
-        grid = new byte[][] {
+        final byte[][] grid = new byte[][] {
                 {Cell.EAST_OPEN_MASK, Cell.EAST_OPEN_MASK, Cell.NORTH_OPEN_MASK, Cell.EAST_OPEN_MASK, Cell.NORTH_OPEN_MASK},
                 {Cell.EAST_OPEN_MASK, Cell.NORTH_OPEN_MASK, Cell.EAST_OPEN_MASK, Cell.NORTH_OPEN_MASK, Cell.NORTH_OPEN_MASK},
                 {Cell.NORTH_OPEN_MASK, Cell.EAST_OPEN_MASK, Cell.NORTH_OPEN_MASK, Cell.EAST_OPEN_MASK, Cell.NORTH_OPEN_MASK},
