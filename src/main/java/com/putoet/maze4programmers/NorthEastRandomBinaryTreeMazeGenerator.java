@@ -3,8 +3,8 @@ package com.putoet.maze4programmers;
 /**
  * Singleton maze generator using random binary tree algorithm
  */
-public class RandomBinaryTreeMazeGenerator implements MazeGenerator {
-    private RandomBinaryTreeMazeGenerator() {
+public class NorthEastRandomBinaryTreeMazeGenerator implements MazeGenerator {
+    private NorthEastRandomBinaryTreeMazeGenerator() {
     }
 
     /**
@@ -33,7 +33,7 @@ public class RandomBinaryTreeMazeGenerator implements MazeGenerator {
             return;
         }
 
-        // There is a choice etween east and north
+        // There is a choice between east and north
         if (flipCoin())
             openNorth(x, y, grid);
         else
@@ -41,6 +41,6 @@ public class RandomBinaryTreeMazeGenerator implements MazeGenerator {
     }
 
     private static final class InstanceHolder {
-        private static final RandomBinaryTreeMazeGenerator instance = new RandomBinaryTreeMazeGenerator();
+        private static final NorthEastRandomBinaryTreeMazeGenerator instance = new NorthEastRandomBinaryTreeMazeGenerator();
     }
 }

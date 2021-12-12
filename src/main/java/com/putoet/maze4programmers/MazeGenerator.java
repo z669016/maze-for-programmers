@@ -56,6 +56,16 @@ public interface MazeGenerator {
     }
 
     /**
+     * checks if the y-coordinate corresponds to the south (bottom) row of the maze
+     * @param y y-coordinate
+     * @param grid the byte[][] grid
+     * @return true if the y-coordinate is of the south (bottom) row, false otherwise
+     */
+    default boolean isMinY(int y, byte[][] grid) {
+        return y == 0;
+    }
+
+    /**
      * checks if the x-coordinate corresponds to the east (right) column of the maze
      * @param x y-coordinate
      * @param grid the byte[][] grid
@@ -63,6 +73,16 @@ public interface MazeGenerator {
      */
     default boolean isMaxX(int x, byte[][] grid) {
         return x == grid[0].length - 1;
+    }
+
+    /**
+     * checks if the x-coordinate corresponds to the west (left) column of the maze
+     * @param x y-coordinate
+     * @param grid the byte[][] grid
+     * @return true if the x-coordinate is of the west (left) column, false otherwise
+     */
+    default boolean isMinX(int x, byte[][] grid) {
+        return x == 0;
     }
 
     /**
@@ -77,6 +97,17 @@ public interface MazeGenerator {
     }
 
     /**
+     * Sets the status of the current cell to open to the south, and the cell below it open to the north
+     * @param x x-coordinate
+     * @param y y-coordinate
+     * @param grid the byte[][] grid to be updated
+     */
+    default void openSouth(int x, int y, byte[][] grid) {
+        grid[y][x] = Cell.openSouth(grid[y][x]);
+        grid[y - 1][x] = Cell.openNorth(grid[y - 1][x]);
+    }
+
+    /**
      * Sets the status of the current cell to open to the east, and the cell at the right it open to the west
      * @param x x-coordinate
      * @param y y-coordinate
@@ -85,6 +116,17 @@ public interface MazeGenerator {
     default void openEast(int x, int y, byte[][] grid) {
         grid[y][x] = Cell.openEast(grid[y][x]);
         grid[y][x + 1] = Cell.openWest(grid[y][x + 1]);
+    }
+
+    /**
+     * Sets the status of the current cell to open to the west, and the cell at the left it open to the east
+     * @param x x-coordinate
+     * @param y y-coordinate
+     * @param grid the byte[][] grid to be updated
+     */
+    default void openWest(int x, int y, byte[][] grid) {
+        grid[y][x] = Cell.openWest(grid[y][x]);
+        grid[y][x - 1] = Cell.openEast(grid[y][x - 1]);
     }
 
     /**
